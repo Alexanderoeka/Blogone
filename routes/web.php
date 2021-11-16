@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +13,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Auth::get();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','Blog\HomeController@index')->name('mainpage');

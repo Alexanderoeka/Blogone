@@ -2,7 +2,7 @@
 @section('content')
 <section>
 <div class="container">
-   sss
+   Тут должны быть посты )))))))
 </div>
 </section>
 @endsection

@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Auth::get();
-
+// Стартовая страница
 Route::get('/','Blog\HomeController@index')->name('mainpage');
 
+// Страница категорий
 Route::get('categories','Blog\CategoryController@index')->name('categories');
+//Страница постов категории
+Route::get('categories/{index}/posts','Blog\PostController@index')->name('categories.posts');

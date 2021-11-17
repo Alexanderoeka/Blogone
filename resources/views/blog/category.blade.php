@@ -3,13 +3,13 @@
 
     <section>
         <div class="container">
-            <div class="">
-                <div class="row d-flex justify-content-center">
-                    Category one
-                </div>
-                <div class="row d-flex justify-content-center">
-                    Category two
-                </div>
+            <div class="list-group linkss ">
+                @foreach ($categories as $item)
+
+                    <a class="list-group-item list-group-item-action"
+                        href="{{ route('categories.posts', $item->id) }}">{{ $item->title }}</a>
+
+                @endforeach
             </div>
         </div>
     </section>

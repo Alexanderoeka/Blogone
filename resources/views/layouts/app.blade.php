@@ -12,7 +12,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <div class="col-3">
-                    <a class="navbar-brand" href="#">Blogone</a>
+                    <p class="navbar-brand">Blogone</p>
                 </div>
                 <div class=" col-6 collapse navbar-collapse d-flex " {{-- id="navbarSupportedContent" --}}>
                     <ul class=" justify-content-center navbar-nav me-auto mb-2 mb-lg-0">

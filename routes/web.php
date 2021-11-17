@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 //Auth::get();
 
 Route::get('/','Blog\HomeController@index')->name('mainpage');
+
+Route::get('categories','Blog\CategoryController@index')->name('categories');

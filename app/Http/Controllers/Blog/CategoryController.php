@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class CategoryController extends BaseController
 {
     public function index()
     {
-        return view('blog.main_page');
+        return view('blog.category');
     }
 }

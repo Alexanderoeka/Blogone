@@ -18,10 +18,10 @@ class Posts extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->bigInteger('category_id');
-            $table->bigInteger('user_id');
-            $table->string('description');
-            $table->string('content');
+            $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->text('description');
+            $table->longText('content');
             $table->timestamps();
 
 

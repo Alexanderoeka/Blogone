@@ -3,7 +3,7 @@
 @section('content')
     <section>
         <div class="container listofposts">
-            <div>
+            <div class="cont">
                 @foreach ($postsbyCategory as $item)
                     <div class="row postss">
 
@@ -12,7 +12,7 @@
 
                     </div>
                 @endforeach
-                <div>
+                <div style="margin-top:2%;">
                     @if ($postsbyCategory->total() > $postsbyCategory->count())
                         {{ $postsbyCategory->links() }}
                 </div>

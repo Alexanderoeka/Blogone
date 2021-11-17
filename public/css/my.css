@@ -6,7 +6,11 @@ margin-left:29%;
 
 .postss{
 border-bottom: 2px solid;
-width:30%;
+
+}
+.cont{
+    width:30%;
+    margin-left:29%;
 }
 
 .listofposts{

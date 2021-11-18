@@ -15,11 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 //Auth::get();
 // Стартовая страница
-Route::get('/','Blog\HomeController@index')->name('mainpage');
+Route::get('/', 'Blog\HomeController@index')->name('mainpage');
 
 // Страница категорий
-Route::get('categories','Blog\CategoryController@index')->name('categories');
+Route::get('categories', 'Blog\CategoryController@index')->name('categories');
 //Страница постов категории
-Route::get('categories/{index}/posts','Blog\PostController@index')->name('categories.posts');
+Route::get('categories/{index}/posts', 'Blog\PostController@index')->name('categories.posts');
 
-Route::get('post/{id}','Blog\PostController@show')->name('post.show');
+Route::get('post/{id}/show', 'Blog\PostController@show')->name('post.show');
+
+Route::get('post/create', 'Blog\PostController@create')->name('post.create');
+
+Route::get('post/store','Blog\PostController@store')->name('post.store');

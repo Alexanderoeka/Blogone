@@ -17,13 +17,17 @@
                 <div class=" col-6 collapse navbar-collapse d-flex " {{-- id="navbarSupportedContent" --}}>
                     <ul class=" justify-content-center navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item ">
-                            <a class="nav-link active" aria-current="page" href="{{route('mainpage')}}">Домашняя страница</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('mainpage') }}">Домашняя
+                                страница</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" href="{{ route('categories') }}">Категории</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Профиль</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('post.create')}}">Создать пост</a>
                         </li>
                     </ul>
 

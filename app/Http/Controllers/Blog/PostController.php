@@ -8,6 +8,7 @@ use App\models\Category;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 // Контроллер работы с постами на странице постов
 class PostController extends BaseController
@@ -27,5 +28,22 @@ class PostController extends BaseController
         $post = Post::find($post_id);
 
         return view('blog.post_show', compact('post'));
+    }
+
+    public function create()
+    {
+        $categories = Category::all();
+
+        return view('blog.create_post', compact('categories'));
+    }
+
+    public function store(Request $request)
+    {
+        $req = $request->all();
+        unset($req['_token']);
+
+        $post = Post::create($req);
+
+        return redirect()->route('post.show', $post->id);
     }
 }

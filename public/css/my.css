@@ -1,20 +1,28 @@
-.linkss{
-width:40%;
-text-align:center;
-margin-left:29%;
+.linkss {
+    width: 40%;
+    text-align: center;
+    margin-left: 29%;
 }
 
-.postss{
-border-bottom: 2px solid;
+.postss {
+    border-bottom: 2px solid;
 
 }
-.cont{
-    width:30%;
-    margin-left:29%;
+
+.cont {
+    width: 30%;
+    margin-left: 29%;
 }
 
-.listofposts{
-width:70%;
-text-align:center;
+.listofposts {
+    width: 70%;
+    text-align: center;
+
+}
+
+.post {
+    text-align: center;
+    max-width: 50%;
+
 
 }

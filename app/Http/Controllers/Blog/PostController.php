@@ -26,6 +26,6 @@ class PostController extends BaseController
     {
         $post = Post::find($post_id);
 
-        return view('', compact('post'));
+        return view('blog.post_show', compact('post'));
     }
 }

@@ -21,3 +21,5 @@ Route::get('/','Blog\HomeController@index')->name('mainpage');
 Route::get('categories','Blog\CategoryController@index')->name('categories');
 //Страница постов категории
 Route::get('categories/{index}/posts','Blog\PostController@index')->name('categories.posts');
+
+Route::get('post/{id}','Blog\PostController@show')->name('post.show');

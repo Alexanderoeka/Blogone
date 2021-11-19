@@ -29,6 +29,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('post.create')}}">Создать пост</a>
                         </li>
+                        @if(empty(session()->exists('user')))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('logout')}}">Выйти</a>
+                        </li>
+                        @endIf
                     </ul>
 
                     <form class="d-flex">

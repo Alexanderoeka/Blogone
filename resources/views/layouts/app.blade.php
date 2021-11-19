@@ -26,13 +26,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Профиль</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('post.create')}}">Создать пост</a>
-                        </li>
-                        @if(empty(session()->exists('user')))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('logout')}}">Выйти</a>
-                        </li>
+                        @if (Auth::user() != null)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('post.create') }}">Создать пост</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                            </li>
+                            <li clas="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Зарегестрироваться</a>
+                            </li>
                         @endIf
                     </ul>
 

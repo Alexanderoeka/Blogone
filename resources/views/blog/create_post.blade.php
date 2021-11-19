@@ -11,9 +11,9 @@
                     <input class="form-control" type="text" id="title" name="title" value="" />
                     <lable for="user_id">Автор</lable>
                     <input class="form-control" type="text" id="user_id" name="user_id" value="" />
-                    <select name="category_id">
+                    <select name="category_id" class="form-select" style="margin-top:2%;">
                         @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{$item->title}}</option>
+                            <option value="{{ $item->id }}">{{ $item->title }}</option>
                         @endforeach
                     </select>
                 </div>

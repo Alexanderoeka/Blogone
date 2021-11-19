@@ -9,9 +9,12 @@
                 <div class="row post cont">
                     <lable for="title">Название</lable>
                     <input class="form-control" type="text" id="title" name="title" value="" />
-                    <lable for="user_id">Автор</lable>
-                    <input class="form-control" type="text" id="user_id" name="user_id" value="" />
-                    <select name="category_id" class="form-select" style="margin-top:2%;">
+                    <div hidden>
+                        <lable for="user_id">Автор</lable>
+                        <input class="form-control" type="text" id="user_id" name="user_id" value="{{ Auth::id() }}" />
+                    </div>
+                    <lavle for="category">Категория</lable>
+                    <select name="category_id" id="category" class="form-select" style="margin-top:2%;">
                         @foreach ($categories as $item)
                             <option value="{{ $item->id }}">{{ $item->title }}</option>
                         @endforeach

@@ -28,9 +28,11 @@ Route::get('post/{id}/show', 'Blog\PostController@show')->name('post.show');
 
 Route::get('post/create', 'Blog\PostController@create')->name('post.create')->middleware('auth');
 
-Route::get('post/store','Blog\PostController@store')->name('post.store');
+Route::get('post/store', 'Blog\PostController@store')->name('post.store');
 
 Auth::routes();
-Route::get('logout','Auth\LoginController@logout')->name('logout');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('user', 'Blog\UserController@index')->name('user');

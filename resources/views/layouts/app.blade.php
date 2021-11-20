@@ -24,7 +24,7 @@
                             <a class="nav-link" href="{{ route('categories') }}">Категории</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Профиль</a>
+                            <a class="nav-link" href="{{route('user')}}">Профиль</a>
                         </li>
                         @if (Auth::user() != null)
                             <li class="nav-item">

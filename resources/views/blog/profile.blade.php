@@ -5,7 +5,17 @@
     <section>
         <div class="container">
             <div class="row profile">
-                <form method="POST" action="{{route('user.store')}}">
+                @if ($errors->any())
+                    <div>
+
+                        {{ $errors->all()[0] }}
+                    </div>
+                @endif
+
+                @if (session()->get('success') != null)
+                    <div>{{ session()->get('success') }}</div>
+                @endif
+                <form method="POST" action="{{ route('user.store') }}">
                     @csrf
                     @method('POST')
 
@@ -17,7 +27,8 @@
                     </div>
                     <div>
                         О себе :
-                        <textarea class="form-control" rows="5" name="description">{{Auth::user()->description}}</textarea>
+                        <textarea class="form-control" rows="5"
+                            name="description">{{ Auth::user()->description }}</textarea>
                     </div>
 
                     <div>Новый пароль :

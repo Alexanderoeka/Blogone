@@ -17,10 +17,8 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
 
-        if(Auth::user()->admin!=1)
-        {
+        if (session()->get('admin')==null) {
             return redirect()->route('admin.login');
-
         }
 
 

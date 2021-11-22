@@ -9,7 +9,7 @@
                 <lable for="name">Логин</lable><input class="form-control" id="name" type="text" name="name" />
 
                 <lable for="password">Пароль</lable><input class="form-control" id="password" type="password"
-                    value="" />
+                    value="" name="password" />
 
                 <input type="submit" value="Войти" />
             </form>

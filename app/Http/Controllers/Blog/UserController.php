@@ -15,8 +15,11 @@ class UserController extends Controller
     public function index()
     {
 
+        $postsfromUser = User::find(Auth::id())->posts()->orderBy('id', 'desc')->get();
+
+
         //dd(Auth::user());
-        return view('blog.profile');
+        return view('blog.profile', compact('postsfromUser'));
     }
 
     public function store(Request $request)

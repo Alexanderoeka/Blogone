@@ -15,6 +15,8 @@ class UserController extends Controller
     public function index()
     {
 
+
+
         $postsfromUser = User::find(Auth::id())->posts()->orderBy('id', 'desc')->get();
 
 

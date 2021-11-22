@@ -37,4 +37,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user', 'Blog\UserController@index')->name('user')->middleware('auth');
 
-Route::post('user/store','Blog\UserController@store')->name('user.store')->middleware('auth');
+Route::post('user/store', 'Blog\UserController@store')->name('user.store')->middleware('auth');
+
+Route::get('admin', 'Blog\Admin\AdminController@index')->name('admin.index')->middleware('adminauth');
+
+Route::get('admin/login', 'Blog\Admin\AdminLoginController@login')->name('admin.login');
+
+Route::post('admin/checklogin','Blog\Admin\AdminLoginController@checklogin')->name('admin.checklogin');

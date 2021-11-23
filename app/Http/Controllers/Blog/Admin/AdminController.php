@@ -9,6 +9,12 @@ class AdminController extends Controller
 {
     public function index()
     {
-        dd(__METHOD__);
+        return view('blog.admin.admin_main');
+    }
+
+    public function logout()
+    {
+        session()->forget('admin');
+       return redirect()->route('admin.login');
     }
 }

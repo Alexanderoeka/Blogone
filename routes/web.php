@@ -44,3 +44,8 @@ Route::get('admin', 'Blog\Admin\AdminController@index')->name('admin.index')->mi
 Route::get('admin/login', 'Blog\Admin\AdminLoginController@login')->name('admin.login');
 
 Route::post('admin/checklogin','Blog\Admin\AdminLoginController@checklogin')->name('admin.checklogin');
+
+Route::get('admin/logout','Blog\Admin\AdminController@logout')->name('admin.logout');
+
+
+Route::get('admin/categories','Blog\Admin\AdminCategoryController@index')->name('admin.categories')->middleware('adminauth');

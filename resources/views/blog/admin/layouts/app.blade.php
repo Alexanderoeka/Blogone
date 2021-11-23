@@ -12,36 +12,23 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <div class="col-3">
-                    <p class="navbar-brand">Blogone</p>
+                    <p class="navbar-brand">Blogone Admin</p>
                 </div>
                 <div class=" col-6 collapse navbar-collapse d-flex " {{-- id="navbarSupportedContent" --}}>
                     <ul class=" justify-content-center navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item ">
-                            <a class="nav-link active" aria-current="page" href="{{ route('mainpage') }}">Домашняя
+                            <a class="nav-link active" aria-current="page" href="{{ route('mainpage') }}">Главная
                                 страница</a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('categories') }}">Категории</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.index')}}">Общее</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('user')}}">Профиль</a>
+                            <a class="nav-link" href="{{ route('admin.categories') }}">Категории</a>
                         </li>
-                        @if (Auth::user() != null)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('post.create') }}">Создать пост</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Войти</a>
-                            </li>
-                            <li clas="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">Зарегестрироваться</a>
-                            </li>
-                        @endIf
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.logout') }}">Выход</a>
+                        </li>
                     </ul>
 
                     <form class="d-flex">

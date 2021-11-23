@@ -21,13 +21,18 @@ class AdminLoginController extends Controller
 
 
 
-        $admin = Admin::select()->where('name', 'Dmitrii')->get()[0];
+        if (isset(Admin::select()->where('name', $data['name'])->get()[0])) {
+            $admin = Admin::select()->where('name', $data['name'])->get()[0];
+        } else {
+            return back()->withErrors(['error' => 'Неверный логин или пароль']);
+        }
 
-        dd($admin->password,Hash::check('1234567qw',$admin->password));
 
-        //if()
-        // $2y$10$bvGFgBL/sUG99pYMrLKba.WycztJDruTG412s1Cw8sQZr2wmfdpFW
-        //$2y$10$5qJmdhYlHG47UHcyHr5VFevuL985Eq9CTlIIBglwWYjHsgp0.i5DO
-
+        if (Hash::check($data['password'], $admin->password)) {
+            session(['admin' => $admin]);
+            return redirect()->route('admin.index');
+        } else {
+            return back()->withErrors(['error' => 'Неверный логин или пароль']);
+        }
     }
 }

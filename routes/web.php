@@ -43,9 +43,13 @@ Route::get('admin', 'Blog\Admin\AdminController@index')->name('admin.index')->mi
 
 Route::get('admin/login', 'Blog\Admin\AdminLoginController@login')->name('admin.login');
 
-Route::post('admin/checklogin','Blog\Admin\AdminLoginController@checklogin')->name('admin.checklogin');
+Route::post('admin/checklogin', 'Blog\Admin\AdminLoginController@checklogin')->name('admin.checklogin');
 
-Route::get('admin/logout','Blog\Admin\AdminController@logout')->name('admin.logout');
+Route::get('admin/logout', 'Blog\Admin\AdminController@logout')->name('admin.logout');
 
 
-Route::get('admin/categories','Blog\Admin\AdminCategoryController@index')->name('admin.categories')->middleware('adminauth');
+Route::get('admin/categories', 'Blog\Admin\AdminCategoryController@index')->name('admin.categories')->middleware('adminauth');
+Route::get('admin/categories/{id}/edit', 'Blog\Admin\AdminCategoryController@edit')->name('admin.category.edit')->middleware('adminauth');
+Route::post('admin/categories/{id}/save', 'Blog\Admin\AdminCategoryController@save')->name('admin.category.save')->middleware('adminauth');
+Route::get('admin/categories/{id}/destroy','Blog\Admin\AdminCategoryController@destroy')->name('admin.category.destroy')->middleware('adminauth');
+

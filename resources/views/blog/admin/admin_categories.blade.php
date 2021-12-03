@@ -8,7 +8,7 @@
                 <table>
                     @foreach ($categories as $item)
                         <div class="item-link">
-                            {{ $item->title }}
+                            <a class="nav-link" href="{{ route('admin.category.edit', $item->id) }}"> {{ $item->title }}</a>
                         </div>
 
                     @endforeach

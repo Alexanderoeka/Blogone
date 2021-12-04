@@ -6,6 +6,9 @@
             @if (!empty(session()->get('success')))
                 <div>{{session()->get('success')}}</div>
             @endif
+            @if($errors)
+                {{session()->get('errors')->getBag('error')}}
+            @endif
             <div class="row titlee">
                 <div class="col-6">
                     <h5>Редактирование категории : {{ $category->title }}</h5>

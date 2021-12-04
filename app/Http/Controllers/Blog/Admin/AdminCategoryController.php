@@ -25,12 +25,15 @@ class AdminCategoryController extends Controller
     public function save(Request $request,$id)
     {
         $data = $request->all();
+        $data['pizda']=10;
 
         $category = Category::find($id);
+        unset($data['_token']);
+
         $answer = $category->fill($data)->save();
-        if($answer)
+        if($answer==false)
         {
-           return redirect()->route('admin.category',$id)->with(['success'=>'Сохранение данных категории успешно']);
+           return redirect()->route('admin.category.edit',$id)->with(['success'=>'Сохранение данных категории успешно']);
         }else
         {
             return back()->withErrors(['error'=>'Ошибка сохранения'])->withInput();

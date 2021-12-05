@@ -6,8 +6,8 @@
             @if (!empty(session()->get('success')))
                 <div>{{session()->get('success')}}</div>
             @endif
-            @if($errors)
-                {{session()->get('errors')->getBag('error')}}
+            @if($errors->any())
+                {{implode(session()->get('errors')->get('error'))}}
             @endif
             <div class="row titlee">
                 <div class="col-6">

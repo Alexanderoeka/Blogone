@@ -52,4 +52,6 @@ Route::get('admin/categories', 'Blog\Admin\AdminCategoryController@index')->name
 Route::get('admin/categories/{id}/edit', 'Blog\Admin\AdminCategoryController@edit')->name('admin.category.edit')->middleware('adminauth');
 Route::post('admin/categories/{id}/save', 'Blog\Admin\AdminCategoryController@save')->name('admin.category.save')->middleware('adminauth');
 Route::get('admin/categories/{id}/destroy','Blog\Admin\AdminCategoryController@destroy')->name('admin.category.destroy')->middleware('adminauth');
+Route::get('admin/categories/create','Blog\Admin\AdminCategoryController@create')->name('admin.category.create')->middleware('adminauth');
+Route::post('admin/categories/store','Blog\Admin\AdminCategoryController@store')->name('admin.category.store')->middleware('adminauth');
 

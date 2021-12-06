@@ -13,6 +13,9 @@
                 <div>Описание : {{ $post->description }}</div>
                 <lable for="text">Содержание :</lable>
                 <div id="text" style="word-break: break-all;"> {{ $post->content }}</div>
+                @if(Auth::id()==$post->user_id)
+                        <a class="btn btn-primary" href=""></a>
+                @endif
             </div>
         </div>
         </div>

@@ -58,3 +58,4 @@ Route::post('admin/categories/store', 'Blog\Admin\AdminCategoryController@store'
 Route::get('search', 'Blog\SearchController@index')->name('search');
 Route::post('search.posts','Blog\SearchController@search')->name('search.posts');
 
+Route::get('post/{id}/edit','Blog\PostController@edit')->name('post.edit');

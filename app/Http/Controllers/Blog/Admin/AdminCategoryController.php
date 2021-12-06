@@ -37,14 +37,22 @@ class AdminCategoryController extends Controller
     }
     public function destroy($id)
     {
-        dd(__METHOD__, $id);
+        $category = Category::find($id);
+        $title = $category->title;
+        $answer = $category->delete();
+
+        if($answer)
+        {
+            return redirect()->route('admin.categories')->with(['success'=>'Удаление категории "'.$title.'"  успешно']);
+
+        }else{
+            return back()->withErrors(['error'=>'Ошибка- удаление категории не исполнилось']);
+        }
+
     }
 
     public function create()
     {
-
-
-
         return view('blog.admin.admin_category_create');
     }
     public function store(Request $request)
@@ -54,7 +62,7 @@ class AdminCategoryController extends Controller
         $category = new Category;
         $result = $category->fill($data)->save();
 
-        if ($result=false) {
+        if ($result) {
             return redirect()->route('admin.category.edit',$category->id)
                 ->with(['success' => 'Создание новой категории прошло успешно']);
         } else {

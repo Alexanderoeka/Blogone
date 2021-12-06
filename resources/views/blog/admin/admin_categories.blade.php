@@ -4,16 +4,26 @@
 
     <section>
         <div class="container">
-            <div class="row categr">
-            <div>
-                <a class="btn btn-secondary" href="{{route('admin.category.create')}}">Создать категорию</a>
+            <div class="row">
+                @if ($errors)
+                    {{ implode($errors->get('error')) }}
+                @endif
+                @if (!empty(session()->get('success')))
+                    {{ session()->get('success') }}
+                @endif
             </div>
-                    @foreach ($categories as $item)
-                        <div class="item-link">
-                            <a class="nav-link categr" href="{{ route('admin.category.edit', $item->id) }}"> {{ $item->title }}</a>
-                        </div>
+            <div class="row">
 
-                    @endforeach
+                <div>
+                    <a class="btn btn-secondary" href="{{ route('admin.category.create') }}">Создать категорию</a>
+                </div>
+                @foreach ($categories as $item)
+                    <div class="item-link ">
+                        <a class="btn btn-link categr " href="{{ route('admin.category.edit', $item->id) }}">
+                            {{ $item->title }}</a>
+                    </div>
+
+                @endforeach
 
             </div>
         </div>

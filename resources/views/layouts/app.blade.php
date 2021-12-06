@@ -24,7 +24,7 @@
                             <a class="nav-link" href="{{ route('categories') }}">Категории</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('user')}}">Профиль</a>
+                            <a class="nav-link" href="{{ route('user') }}">Профиль</a>
                         </li>
                         @if (Auth::user() != null)
                             <li class="nav-item">
@@ -41,13 +41,14 @@
                             <li clas="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">Зарегестрироваться</a>
                             </li>
+
                         @endIf
+                        <li> <a class="btn btn-light" href="{{route('search')}}">Поиск</a></li>
                     </ul>
 
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Поиск</button>
-                    </form>
+
+
+
 
 
                 </div>

@@ -60,11 +60,20 @@
 
 .categr {
     text-align: left;
+
+
+
     width:auto;
-    width:min-content;
 }
 .creatc{
 width:40%;
 text-align:center;
 margin-left:30%;
+}
+
+
+.searc{
+    text-align:center;
+    width:40%;
+    margin-left:27%;
 }

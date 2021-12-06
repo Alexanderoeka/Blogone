@@ -13,7 +13,7 @@
                         <input type="text" class="form-control" name="title" />
                         Описание
                         <textarea name="description" cols="30" rows="10" class="form-control"></textarea>
-                        <input type="submit" class="btn btn-primary" style="margin-top:3%;" />
+                        <input type="submit" class="btn btn-primary" style="margin-top:3%;" value="Создать" />
                     </form>
                 </div>
 

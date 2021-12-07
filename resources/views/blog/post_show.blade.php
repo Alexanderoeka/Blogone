@@ -14,7 +14,7 @@
                 <lable for="text">Содержание :</lable>
                 <div id="text" style="word-break: break-all;"> {{ $post->content }}</div>
                 @if(Auth::id()==$post->user_id)
-                        <a class="btn btn-primary" href=""></a>
+                        <a class="btn btn-primary" href="{{route('post.edit',$post->id)}}">Редактировать</a>
                 @endif
             </div>
         </div>

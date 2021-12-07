@@ -46,4 +46,22 @@ class PostController extends BaseController
 
         return redirect()->route('post.show', $post->id);
     }
+
+    public function edit(Request $request)
+    {
+        $post_id= $request->id;
+
+        $post = Post::find($post_id);
+        $categories = Category::all();
+
+        return view('blog.post_edit',compact('post','categories'));
+
+    }
+
+    public function save(Request $request)
+    {
+        $data = $request->all();
+        dd(__METHOD__,$data);
+
+    }
 }

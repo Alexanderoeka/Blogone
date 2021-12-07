@@ -58,4 +58,6 @@ Route::post('admin/categories/store', 'Blog\Admin\AdminCategoryController@store'
 Route::get('search', 'Blog\SearchController@index')->name('search');
 Route::post('search.posts','Blog\SearchController@search')->name('search.posts');
 
-Route::get('post/{id}/edit','Blog\PostController@edit')->name('post.edit');
+Route::get('post/{id}/edit','Blog\PostController@edit')->name('post.edit')->middleware('checkedit');
+
+Route::post('post/{id}/save','Blog\PostController@save')->name('post.save')->middleware('checkedit');

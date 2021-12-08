@@ -24,26 +24,14 @@
                             <a class="nav-link" href="{{ route('categories') }}">Категории</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user') }}">Профиль</a>
+                            <a class="nav-link" href="{{ route('post.create') }}">Создать пост</a>
                         </li>
-                        @if (Auth::user() != null)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('post.create') }}">Создать пост</a>
-                            </li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('author') }}">Авторы</a>
+                        </li>
+                        <li> <a class="btn btn-light" href="{{ route('search') }}">Поиск</a></li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Войти</a>
-                            </li>
-                            <li clas="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">Зарегестрироваться</a>
-                            </li>
 
-                        @endIf
-                        <li> <a class="btn btn-light" href="{{route('search')}}">Поиск</a></li>
+
                     </ul>
 
 
@@ -52,11 +40,31 @@
 
 
                 </div>
+                <ul class="col-3 navbar-nav d-flex collapse navbar-collapse align-self-end" style="margin-bottom:0.7%;">
+                    @if (Auth::user() != null)
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user') }}">{{ Auth::user()->name }}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
+                        </li>
+
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Войти</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Зарегестрироваться</a>
+                        </li>
+
+                    @endif
+                </ul>
+            </div>
 
         </nav>
-        </nav>
-        </div>
-        </div>
+
 
     </header>
     @yield('content')

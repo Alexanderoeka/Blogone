@@ -56,8 +56,11 @@ Route::get('admin/categories/create', 'Blog\Admin\AdminCategoryController@create
 Route::post('admin/categories/store', 'Blog\Admin\AdminCategoryController@store')->name('admin.category.store')->middleware('adminauth');
 
 Route::get('search', 'Blog\SearchController@index')->name('search');
-Route::post('search.posts','Blog\SearchController@search')->name('search.posts');
+Route::post('search.posts', 'Blog\SearchController@search')->name('search.posts');
 
-Route::get('post/{id}/edit','Blog\PostController@edit')->name('post.edit')->middleware('checkedit');
+Route::get('post/{id}/edit', 'Blog\PostController@edit')->name('post.edit')->middleware('checkedit');
 
-Route::post('post/{id}/save','Blog\PostController@save')->name('post.save')->middleware('checkedit');
+Route::post('post/{id}/save', 'Blog\PostController@save')->name('post.save')->middleware('checkedit');
+
+
+Route::get('authors', 'Blog\AuthorController@index')->name('author');

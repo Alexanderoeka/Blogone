@@ -61,7 +61,17 @@ class PostController extends BaseController
     public function save(Request $request)
     {
         $data = $request->all();
-        dd(__METHOD__,$data);
+        $id = $request->id;
+        $post = Post::find($id);
+
+        $answer = $post->fill($data)->save();
+
+        if($answer)
+        {
+            return redirect()->route('post.show',$id)->with(['success'=>'Редактирование поста успешно']);
+        }else{
+            return back()->withErrors(['error'=>'Ошибка редактирования'])->withInput();
+        }
 
     }
 }

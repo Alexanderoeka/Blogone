@@ -27,11 +27,11 @@
                 <div class="row editare">
                     Содержание
                     <textarea name="content" class="form-control" rows=10>
-                            {{ $post->content }}
-                            </textarea>
-                            <div style="text-align: center; margin-top:2%;">
-                            <input type="submit" class="btn btn-primary" value="Сохранить" />
-                            </div>
+                                {{ $post->content }}
+                                </textarea>
+                    <div style="text-align: center; margin-top:2%;">
+                        <input type="submit" class="btn btn-primary" value="Сохранить" />
+                    </div>
                 </div>
 
             </form>

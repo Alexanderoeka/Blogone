@@ -26,7 +26,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('post.create') }}">Создать пост</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('author') }}">Авторы</a>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('authors') }}">Авторы</a>
                         </li>
                         <li> <a class="btn btn-light" href="{{ route('search') }}">Поиск</a></li>
 

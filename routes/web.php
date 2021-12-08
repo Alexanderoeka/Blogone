@@ -63,4 +63,8 @@ Route::get('post/{id}/edit', 'Blog\PostController@edit')->name('post.edit')->mid
 Route::post('post/{id}/save', 'Blog\PostController@save')->name('post.save')->middleware('checkedit');
 
 
-Route::get('authors', 'Blog\AuthorController@index')->name('author');
+Route::get('authors', 'Blog\AuthorController@index')->name('authors');
+Route::get('author/{id}', 'Blog\AuthorController@show')->name('author');
+
+
+Route::post('authors/{name}/find', 'Blog\AuthorController@find')->name('authors.find');

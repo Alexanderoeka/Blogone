@@ -12,9 +12,16 @@ class AuthorController extends Controller
     {
         $user = new User;
 
-$users = $user->select()->orderBy('id')->limit(15)->get();
+        $users = $user->select()->orderBy('id')->limit(15)->get();
 
 
-        dd(__METHOD__,$users);
+        return view('blog.authors', compact('users'));
+    }
+
+    public function show($id)
+    {
+        $author = User::find($id);
+
+        return view('blog.author_show', compact('author'));
     }
 }

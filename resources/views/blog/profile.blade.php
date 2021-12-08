@@ -46,6 +46,31 @@
                 </form>
             </div>
 
+            <form method="POST" action="{{ route('user.find') }}">
+                @csrf
+                <div class="row">
+                    <h6> Поиск по статьям</h6>
+
+                    <div class="col-3">
+                        Категория
+                        <select name="category_id" class="form-select">
+                            <option value="0" selected>Любая
+                                @foreach ($categories as $category)
+
+                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        Название статьи
+                        <input type="text" name="title" value="" class="form-control" />
+                    </div>
+                    <div class="col-1" style="margin-top:1.9%;">
+                        <input type="submit" value="Поиск" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+
             <div class="row">
                 <h4>Опубликованные статьи</h4>
                 <table class="table">
@@ -57,7 +82,7 @@
                     </tr>
                     @foreach ($postsfromUser as $post)
                         <tr>
-                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $post->id }}</td>
                             <td><a class="nav-link"
                                     href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a>
                             </td>
@@ -65,7 +90,11 @@
                             <td>{{ $post->created_at }}</td>
                         </tr>
                     @endforeach
+
                 </table>
+                @if ($postsfromUser->total() > $postsfromUser->count())
+                    <div>{{ $postsfromUser->links() }}</div>
+                @endif
             </div>
 
 

@@ -5,39 +5,42 @@
 
 
     <section class="container">
-        <div class="row">
+        <div class="row authr">
+            <div>
+                <h4>Автор : {{ $author->name }}</h4>
+                <div>
+                    Почта
+                    <div class="">{{ $author->email }}</div>
+                </div>
+                Описание
+                <div>{{ $author->description }}</div>
 
-            <h4>Автор : {{ $author->name }}</h4>
-
-            Почта
-            <div class="">{{ $author->email }}</div>
-            Описание
-            <div>{{ $author->description }}</div>
-
-
-
-
-
-        </div>
-        <div class="row">
-            <h5>Посты автора</h5>
-            <table class="table">
-                <tr>
-                    <th>№</th>
-                    <th>Название</th>
-                    <th>Категория</th>
-                    <th>Описание</th>
-                </tr>
-                @foreach ($author->posts as $post)
+            </div>
+            <div class="row" style="margin-top:6%">
+                <h5>Посты автора</h5>
+                <table class="table">
                     <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td><a class="nav-link" href="{{route('post.show',$post->id)}}">{{$post->title}}</a></td>
-                        <td>{{$post->category->title}}</td>
-                        <td>{{$post->description}}</td>
+                        <th>№</th>
+                        <th>Название</th>
+                        <th>Категория</th>
+                        <th>Описание</th>
                     </tr>
+                    @foreach ($posts as $post)
+                        <tr>
+                            <td>{{ $post->id }}</td>
+                            <td><a class="nav-link"
+                                    href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></td>
+                            <td>{{ $post->category->title }}</td>
+                            <td>{{ $post->description }}</td>
+                        </tr>
 
-                @endforeach
-            </table>
+                    @endforeach
+
+                </table>
+                @if ($posts->total() > $posts->count())
+                    <div>{{ $posts->links() }}</div>
+                @endif
+            </div>
         </div>
     </section>
 

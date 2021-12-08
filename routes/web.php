@@ -67,4 +67,6 @@ Route::get('authors', 'Blog\AuthorController@index')->name('authors');
 Route::get('author/{id}', 'Blog\AuthorController@show')->name('author');
 
 
-Route::post('authors/{name}/find', 'Blog\AuthorController@find')->name('authors.find');
+Route::post('authors/find', 'Blog\AuthorController@find')->name('authors.find');
+
+Route::post('user/find', 'Blog\UserController@find')->name('user.find');

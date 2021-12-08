@@ -7,7 +7,15 @@
 
             <form method="POST" action="{{route('authors.find')}}">
                 @csrf
-            <div class="row">
+            <div class="row findd">
+
+                Имя автора
+                <div class="col-3" >
+                <input type="text" name="name"    value="" class="form-control"/>
+                </div>
+                <div class="col-1">
+                <input type="submit" value="Поиск" class="btn btn-primary" />
+                </div>
 
             </div>
             </form>

@@ -63,40 +63,54 @@
 
 
 
-    width:auto;
+    width: auto;
 }
-.creatc{
-width:40%;
-text-align:center;
-margin-left:30%;
+
+.creatc {
+    width: 40%;
+    text-align: center;
+    margin-left: 30%;
 }
 
 
-.searco{
+.searco {
+    text-align: center;
+
+    margin-left: 27%;
+}
+
+.searct {
+    text-align: center;
+    margin-left: 30%;
+}
+
+.ediit {
+    text-align: center;
+    width: 35%;
+    margin-left: 25%;
+}
+
+.editdes {
+    text-align: center;
+    width: 45%;
+    margin-left: 23%;
+}
+
+.editare {
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+}
+
+.findd {
+
+    margin-top:2%;
+
+    text-align: center;
+}
+
+.authr{
     text-align:center;
-
-    margin-left:27%;
-}
-
-.searct{
-    text-align:center;
-    margin-left:30%;
-}
-
-.ediit{
-    text-align:center;
-    width:35%;
-    margin-left:25%;
-}
-
-.editdes{
-    text-align:center;
-    width:45%;
-    margin-left:23%;
-}
-
-.editare{
-    text-align:center;
-    width:60%;
-    margin-left:20%;
+    margin-top:4%;
+    margin-bottom:10%;
 }

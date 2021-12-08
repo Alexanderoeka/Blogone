@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Post;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,11 +19,11 @@ class UserController extends Controller
 
 
 
-        $postsfromUser = User::find(Auth::id())->posts()->orderBy('id', 'desc')->get();
+        $postsfromUser = User::find(Auth::id())->posts()->orderBy('id', 'desc')->paginate(7);
+        $categories = Category::all();
 
 
-        //dd(Auth::user());
-        return view('blog.profile', compact('postsfromUser'));
+        return view('blog.profile', compact('postsfromUser','categories'));
     }
 
     public function store(Request $request)
@@ -62,5 +64,25 @@ class UserController extends Controller
 
 
         return redirect()->route('user')->with(['success' => 'Сохранение успешно']);
+    }
+
+    public function find(Request $request)
+    {
+        $data = $request->all();
+
+        $query = array();
+
+        if($data['category_id']!=0)
+        {
+            $query['category_id'] = $data['category_id'];
+        }
+
+        if($data['title']!=null)
+        {
+            $query['title'] = $data['title'];
+        }
+
+        $posts = Post::select()->where($query)->paginate(7);
+        dd($posts);
     }
 }

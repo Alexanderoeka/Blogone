@@ -14,16 +14,38 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if (!empty($request->all()) && empty($request->page)) {
+            $data = $request->all();
+
+            $query = array();
+
+            $query['user_id'] = Auth::id();
+
+            if ($data['category_id'] != 0) {
+                $query['category_id'] = $data['category_id'];
+            }
+
+            if ($data['title'] != null) {
+                $query['title'] = $data['title'];
+            }
+
+            $posts = Post::select()->where($query)->paginate(5);
+            $categories = Category::all();
 
 
+        return view('blog.profile', compact('posts', 'categories','query'));
+        } else {
 
-        $postsfromUser = User::find(Auth::id())->posts()->orderBy('id', 'desc')->paginate(7);
-        $categories = Category::all();
+            $posts = User::find(Auth::id())->posts()->orderBy('id', 'desc')->paginate(5);
+            $categories = Category::all();
 
 
-        return view('blog.profile', compact('postsfromUser','categories'));
+        return view('blog.profile', compact('posts', 'categories'));
+        }
+
+
     }
 
     public function store(Request $request)
@@ -72,17 +94,20 @@ class UserController extends Controller
 
         $query = array();
 
-        if($data['category_id']!=0)
-        {
+        $query['user_id'] = Auth::id();
+
+        if ($data['category_id'] != 0) {
             $query['category_id'] = $data['category_id'];
         }
 
-        if($data['title']!=null)
-        {
+        if ($data['title'] != null) {
             $query['title'] = $data['title'];
         }
 
         $posts = Post::select()->where($query)->paginate(7);
-        dd($posts);
+
+        $categories = Category::all();
+
+        return view('blog.profile', compact('posts', 'categories'));
     }
 }

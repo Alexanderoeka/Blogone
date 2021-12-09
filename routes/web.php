@@ -36,6 +36,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user', 'Blog\UserController@index')->name('user')->middleware('auth');
+Route::post('user', 'Blog\UserController@index')->name('user')->middleware('auth');
 
 Route::post('user/store', 'Blog\UserController@store')->name('user.store')->middleware('auth');
 
@@ -69,4 +70,4 @@ Route::get('author/{id}', 'Blog\AuthorController@show')->name('author');
 
 Route::post('authors/find', 'Blog\AuthorController@find')->name('authors.find');
 
-Route::post('user/find', 'Blog\UserController@find')->name('user.find');
+//Route::post('user/find', 'Blog\UserController@find')->name('user.find');

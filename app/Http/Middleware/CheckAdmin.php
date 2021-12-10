@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-
+// Класс проверки на то, является ли он админом
 class CheckAdmin
 {
     /**

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 // Контроллер стартовой странницы
 class HomeController extends Controller
 {
-    // Функция вывода основной страницы (в ближайшем будущем вместе последними постами)
+    // Метод вывода стартовой страницы (+ выводит 10 последних постов)
     public function index()
     {
 

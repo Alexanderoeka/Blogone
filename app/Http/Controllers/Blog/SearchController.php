@@ -9,17 +9,22 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+//класс поиска постов по названию, категории и  имени автора
 class SearchController extends Controller
 {
+
+    // основная функция страницы поиска постов
     public function index()
     {
 
         $categories = Category::all();
 
+        $data=null;
 
-        return view('blog.search', compact('categories'));
+
+        return view('blog.search', compact('categories','data'));
     }
-
+    // функция поиска, выдает объекты по данным параметра из запроса поиска
     public function search(Request $request)
     {
         $data = $request->all();
@@ -44,6 +49,7 @@ class SearchController extends Controller
             return $this->found($posts,$data);
         }
     }
+    // конец функции поиска
     public function found($posts,$data)
     {
         $categories = Category::all();

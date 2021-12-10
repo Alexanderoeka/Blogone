@@ -23,6 +23,7 @@ class PostController extends BaseController
         return view('blog.posts_by_category', compact('postsbyCategory', 'category'));
     }
 
+    // Метод вывода данного поста
     public function show($post_id)
     {
         $post = Post::find($post_id);
@@ -30,13 +31,14 @@ class PostController extends BaseController
         return view('blog.post_show', compact('post'));
     }
 
+    // Метод создания поста от своего аккаунта
     public function create()
     {
         $categories = Category::all();
 
         return view('blog.create_post', compact('categories'));
     }
-
+    // Метод сохранения созданного поста
     public function store(Request $request)
     {
         $req = $request->all();
@@ -46,7 +48,7 @@ class PostController extends BaseController
 
         return redirect()->route('post.show', $post->id);
     }
-
+    // Метод редактирование своего поста
     public function edit(Request $request)
     {
         $post_id= $request->id;
@@ -57,7 +59,7 @@ class PostController extends BaseController
         return view('blog.post_edit',compact('post','categories'));
 
     }
-
+    // Метод сохранения своего отредактированного поста
     public function save(Request $request)
     {
         $data = $request->all();

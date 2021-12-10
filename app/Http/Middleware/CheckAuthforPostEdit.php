@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use App\Models\Post;
 use Closure;
 use Illuminate\Support\Facades\Auth;
-
+// Класс проверки на то, что редактируемый пост является твоим
 class CheckAuthforPostEdit
 {
     /**

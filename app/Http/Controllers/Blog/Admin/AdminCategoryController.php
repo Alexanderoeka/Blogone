@@ -6,20 +6,25 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+// Класс изменения категорий в админке
 class AdminCategoryController extends Controller
 {
+    // Выводит все категории в админке
     public function  index()
     {
         $categories = Category::all();
 
         return view('blog.admin.admin_categories', compact('categories'));
     }
+
+    // Метод редактирования категории
     public function edit($id)
     {
         $category = Category::find($id);
 
         return view('blog.admin.admin_category_edit', compact('category'));
     }
+    //Метод сохранение отредактированной категории
     public function save(Request $request, $id)
     {
         $data = $request->all();
@@ -35,6 +40,7 @@ class AdminCategoryController extends Controller
             return back()->withErrors(['error' => 'Ошибка сохранения'])->withInput();
         }
     }
+    // Метод удаления категории
     public function destroy($id)
     {
         $category = Category::find($id);
@@ -51,10 +57,14 @@ class AdminCategoryController extends Controller
 
     }
 
+
+    // Метод создания новой категории
     public function create()
     {
         return view('blog.admin.admin_category_create');
     }
+
+    // Метод сохранения созданной категории
     public function store(Request $request)
     {
 

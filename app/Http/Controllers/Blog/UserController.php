@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+
+// Класс пользователя и профиля
 class UserController extends Controller
 {
+
+    // Функция отвечающая за страницу профиля (и поиска постов в профиле )
     public function index(Request $request)
     {
         if (!empty($request->all()) && empty($request->page)) {
@@ -47,7 +51,7 @@ class UserController extends Controller
 
 
     }
-
+    // Функция  сохранения данных пользователя (она должна была называться save, но ладно)
     public function store(Request $request)
     {
         $data = $request->all();
@@ -88,6 +92,7 @@ class UserController extends Controller
         return redirect()->route('user')->with(['success' => 'Сохранение успешно']);
     }
 
+    // Функция поиска постов по названию и категории (сейчас реализуется в index функции данного класса)
     public function find(Request $request)
     {
         $data = $request->all();

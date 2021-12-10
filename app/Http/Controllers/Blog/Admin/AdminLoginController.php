@@ -8,13 +8,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+
+// Класс аутентификации админа
 class AdminLoginController extends Controller
 {
+    // Метод страницы входа в админку
     public function login()
     {
 
         return view('blog.admin.admin_login');
     }
+
+    // Метод проверки логина и пароля для входа в админку
     public function checklogin(Request $request)
     {
         $data = $request->all();

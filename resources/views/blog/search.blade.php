@@ -14,13 +14,13 @@
                         <select class="form-select" name="category_id">
                             <option selected value="0" /> Любая
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" @if($data['category_id']==$category->id) selected @endif />{{ $category->title }}
+                                <option value="{{ $category->id }}" @if(!empty($data)) @if ($data['category_id'] == $category->id) selected @endif @endif />{{ $category->title }}
                             @endforeach
                         </select>
                     </div>
                     <div class="col-3">
                         Автор
-                        <input class="form-control" type="text" name="name" value="{{$data['name']}}" />
+                        <input class="form-control" type="text" name="name" value="{{ $data['name'] }}" />
                     </div>
 
 
@@ -30,11 +30,11 @@
 
                         Название статьи
 
-                        <input class="form-control " type="text" name="title" value="{{$data['title']}}" />
+                        <input class="form-control " type="text" name="title" value="{{ $data['title'] }}" />
 
                     </div>
                     <div class="col-1" style="margin-top:2.4%;">
-                        <input type="submit" class="btn btn-primary" value="поиск"/>
+                        <input type="submit" class="btn btn-primary" value="поиск" />
                     </div>
                 </div>
             </form>

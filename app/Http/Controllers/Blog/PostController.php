@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Blog;
 
 use App\Models\Post;
 use App\models\Category;
+use App\Http\Requests;
 
+use App\Http\Requests\PostEditRequest;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostCreateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 
@@ -39,7 +42,7 @@ class PostController extends BaseController
         return view('blog.create_post', compact('categories'));
     }
     // Метод сохранения созданного поста
-    public function store(Request $request)
+    public function store(PostCreateRequest $request)
     {
         $req = $request->all();
         unset($req['_token']);
@@ -60,7 +63,7 @@ class PostController extends BaseController
 
     }
     // Метод сохранения своего отредактированного поста
-    public function save(Request $request)
+    public function save(PostEditRequest $request)
     {
         $data = $request->all();
         $id = $request->id;

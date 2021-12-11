@@ -39,11 +39,11 @@ class AuthorController extends Controller
     {
         $userName = $request->name;
 
-        $users = User::select()->where('name', $userName)->get();
+        $users = User::select()->where('name','LIKE','%'.$userName.'%')->get();
         if (isset($users)) {
-            return view('blog.authors', compact('users'));
+            return view('blog.authors', compact('users','userName'));
         } else {
-            return view('blog.authors');
+            return view('blog.authors',compact('userName'));
         }
     }
 }

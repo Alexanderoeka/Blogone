@@ -19,10 +19,10 @@ class SearchController extends Controller
 
         $categories = Category::all();
 
-        $data=null;
+        $data = null;
 
 
-        return view('blog.search', compact('categories','data'));
+        return view('blog.search', compact('categories', 'data'));
     }
     // функция поиска, выдает объекты по данным параметра из запроса поиска
     public function search(Request $request)
@@ -31,7 +31,7 @@ class SearchController extends Controller
 
         $quer = array();
         if ($data['title'] != null) {
-            $quer['title'] = $data['title'];
+            $quer['title'] = ['title','LIKE', '%' . $data['title'] . '%'];
         }
         if ($data['category_id'] != 0) {
             $quer['category_id'] = $data['category_id'];
@@ -46,14 +46,14 @@ class SearchController extends Controller
         $posts = Post::select()->where($quer)->get();
 
         if (isset($posts)) {
-            return $this->found($posts,$data);
+            return $this->found($posts, $data);
         }
     }
     // конец функции поиска
-    public function found($posts,$data)
+    public function found($posts, $data)
     {
         $categories = Category::all();
 
-        return view('blog.search', compact('categories','posts','data'));
+        return view('blog.search', compact('categories', 'posts', 'data'));
     }
 }

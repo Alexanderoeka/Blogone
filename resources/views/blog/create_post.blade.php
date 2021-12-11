@@ -3,10 +3,20 @@
     <section>
         <div class="container">
 
-            <h3>Создание поста</h3>
+            <div class="row">
+                @if (!empty(session()->get('errors')))
+
+                    @foreach (session()->get('errors')->getBags()
+        as $error)
+                        <div>{{ $error }}</div><br/>
+                    @endforeach
+                @endif
+            </div>
+
             <form class="form" method="GET" action="{{ route('post.store') }}">
                 @csrf
                 <div class="row post cont">
+                    <h3>Создание поста</h3>
                     <lable for="title">Название</lable>
                     <input class="form-control" type="text" id="title" name="title" value="" />
                     <div hidden>
@@ -14,11 +24,11 @@
                         <input class="form-control" type="text" id="user_id" name="user_id" value="{{ Auth::id() }}" />
                     </div>
                     <lavle for="category">Категория</lable>
-                    <select name="category_id" id="category" class="form-select" style="margin-top:2%;">
-                        @foreach ($categories as $item)
-                            <option value="{{ $item->id }}">{{ $item->title }}</option>
-                        @endforeach
-                    </select>
+                        <select name="category_id" id="category" class="form-select" style="margin-top:2%;">
+                            @foreach ($categories as $item)
+                                <option value="{{ $item->id }}">{{ $item->title }}</option>
+                            @endforeach
+                        </select>
                 </div>
                 <div class="row desc">
                     <lable for="description">Описание</lable>

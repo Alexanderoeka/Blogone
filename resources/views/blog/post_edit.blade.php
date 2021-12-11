@@ -3,6 +3,16 @@
 @section('content')
     <section>
         <div class="container">
+
+            <div class="row">
+                @if (!empty($errors))
+                    @foreach ($errors->getBags() as $error)
+
+                        <div>{{ $error }}</div>
+                    @endforeach
+
+                @endif
+            </div>
             <form method="POST" action="{{ route('post.save', $post->id) }}">
                 @csrf
 
@@ -27,8 +37,8 @@
                 <div class="row editare">
                     Содержание
                     <textarea name="content" class="form-control" rows=10>
-                                {{ $post->content }}
-                                </textarea>
+                                    {{ $post->content }}
+                                    </textarea>
                     <div style="text-align: center; margin-top:2%;">
                         <input type="submit" class="btn btn-primary" value="Сохранить" />
                     </div>
